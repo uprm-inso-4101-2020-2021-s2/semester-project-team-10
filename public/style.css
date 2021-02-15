@@ -203,28 +203,31 @@
 
 /* hero section */
 .main {
-background-color: black;
+    background: rgb(30, 56, 45);
 }
 
 .main__container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    /* grid-template-columns: 1fr 1fr; */
+    justify-content: center;
     align-items: center;
     justify-self: center;
     margin: 0 auto;
     height: 90vh;
-    background-color: rgb(30, 56, 45);
-    background-image:linear-gradient(to right, #005555 0%, 40.557376980781555%, #069044 53.11475396156311%, 76.55737698078156%, #005555 100%);
     width: 100%;
     max-width: 2000px;
     padding: 0 200px;
 }
 
 .main__content h1 {
+    display: grid;
     font-size: 4rem;
     background-color: #078c03;
     background-image: linear-gradient(to top, #078c41 0%, #0DF205 100%);
     background-size: 100%;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 20rem;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -236,6 +239,8 @@ background-color: black;
     background-color: #078c03;
     background-image: linear-gradient(to top, #078c41 0%, #7dad7c 100%);
     background-size: 100%;
+    position: relative;
+    z-index: 2;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -247,6 +252,8 @@ background-color: black;
     margin-top: 1rem;
     font-size: 2rem;
     font-size: 700;
+    position: relative;
+    z-index: 2;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -254,13 +261,14 @@ background-color: black;
 }
 
 .main__btn {
-    font-size: 1rem;
+    font-size: 2rem;
     background-image: linear-gradient(to top, #078c41 0%, #7dad7c 100%);
     padding: 14px 32px;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     color: white;
-    margin-top: 2rem;
+    margin-top: 3rem;
+    z-index: 2;
     cursor: pointer;
     position: relative;
     transition: all 0.35s;
@@ -294,21 +302,59 @@ background-color: black;
     width: 100%;
 }
 
-.main__img--container {
-    text-align: center;
+/* Slider Carousel */
+.carousel--container {
+    width: 90vh;
+    margin: auto;
+    overflow: hidden;
+    position: absolute;
 }
 
-#main__img{
-    height: 50%;
+.carousel--slide img {
     width: 100%;
+}
+
+.carousel--slide {
+    display: flex;
+    margin: auto;
+    height: 730px;
+}
+
+#prev__btn {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    left: 5%;
+    font-size: 40px;
+    cursor: pointer;
+    background-image: linear-gradient(to right, white 0%, black 100%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+#next__btn {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    right: 5%;
+    font-size: 40px;
+    cursor: pointer;
+    background-image: linear-gradient(to left, white 0%, black 100%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
 }
 
 /* mobile responsive */
 @media screen and (max-width: 768px){
 
     .main__container{
-        display: grid;
-        grid-template-columns: auto;
+        display: flex;
+        /* grid-template-columns: auto; */
+        /* align-content: center; */
         align-items: center;
         justify-self: center;
         width: 100%;
@@ -318,21 +364,39 @@ background-color: black;
 
     .main__content{
         text-align: center;
-        margin-bottom: 4rem;
+        margin-bottom: 20rem;
     }
 
     .main__content h1{
-        font-size: 2.5rem;
-        margin-top: 2rem;
+        font-size: 6rem;
+        margin-top: 15rem;
     }
 
     .main__content h2{
         font-size: 3rem;
+        margin-top: 15rem;
     }
 
     .main__content p {
         font-size: 1.5rem;
-        margin-top: 1rem;
+        margin-top: 8rem;
+    }
+
+    .carousel--container {
+        width: 75vh;
+        margin: auto;
+        overflow: hidden;
+        position: absolute;
+    }
+    
+    .carousel--slide img {
+        width: 100%;
+    }
+    
+    .carousel--slide {
+        display: flex;
+        margin: auto;
+        height: 925px;
     }
 }
 
@@ -356,12 +420,28 @@ background-color: black;
         padding: 12px 36px;
         margin: 2.5rem 0;
     }
+    .carousel--container {
+        width: 58vh;
+        /* margin: auto; */
+        overflow: hidden;
+        position: absolute;
+    }
+    
+    .carousel--slide img {
+        width: 100%;
+    }
+    
+    .carousel--slide {
+        display: flex;
+        margin: auto;
+        height: 662px;
+    }
 }
 
 /* Tutors Section */
 .tutors {
     background: rgb(30, 56, 45);
-    background-image:linear-gradient(to right, #005555 0%, 40.557376980781555%, #069044 53.11475396156311%, 76.55737698078156%, #005555 100%);
+    /* background-image:linear-gradient(to right, #005555 0%, 40.557376980781555%, #069044 53.11475396156311%, 76.55737698078156%, #005555 100%); */
     display: flex;
     flex-direction: column;
     align-items: center;
