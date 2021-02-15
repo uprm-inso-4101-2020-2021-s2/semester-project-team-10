@@ -200,7 +200,14 @@
         transform: translateY(-8px) rotate(-45deg);
     }
 }
-
+/* Sign in - Section*/
+.sign{
+    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 /* hero section */
 .main {
     background: rgb(30, 56, 45);

@@ -37,7 +37,6 @@ prev__btn.addEventListener('click', () => {
     carouselSlide.style.transform = 'translateX(' + (-size * count) + 'px)';
 });
 
-// NOT WORKING
 carouselSlide.addEventListener('transitionend', () => {
     if (carouselImages[count].id === 'lastClone'){
         carouselSlide.style.transition = "transform 0.4s ease-in-out";
