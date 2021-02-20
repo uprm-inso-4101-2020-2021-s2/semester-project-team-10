@@ -6,9 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>UPRM Tutoring</title>
         <link rel="stylesheet" href="style.css">
-
-        <!-- Logo ICON -->
-        <!-- <img src="public/images/UPRM images/UPRM LOGO White .jpeg" alt="pic" ,id="logo_img"> -->
         
         <!-- Font -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,66 +14,46 @@
 
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+        <!-- Animation CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     </head>
     <body>
 
         <!-- Nav Section -->
-        <nav class="navbar">
-            <div class="navbar__container">
-                <a href="/" id="navbar__logo">UPRM Tutoring</a>
-                <div class="navbar__toggle" id="mobile-menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+        <nav class="navbar navbar-expand-lg navbar-light bg-color container py-3 fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="images/UPRM images/UPRM LOGO White .jpeg" alt="" width="50" height="45" class="d-inline-block align-top me-2">UPRM Tutoring
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link ms-4" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ms-4" href="Pages/Tutors.html">Tutors</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ms-4" href="Pages/Subject.html">Subject</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ms-4" href="/">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav__btn ms-4"><a href="Pages/Signin.html">Sign In</a></button>
+                        </li>
+                    </ul>
                 </div>
-                <ul class="navbar__menu">
-                    <li class="navbar__iteam">
-                        <a href="/" class="navbar__links">Home</a>
-                    </li>
-                    <!-- <li class="navbar__iteam">
-                        <a href="/" class="navbar__links">About Us</a>
-                    </li> -->
-                    <li class="navbar__iteam">
-                        <a href="Pages/Tutors.html" class="navbar__links">Tutors</a>
-                    </li>
-                    <li class="navbar__iteam">
-                        <a href="Pages/Subject.html" class="navbar__links">Subject</a>
-                    </li>
-                    <li class="navbar__iteam">
-                        <a href="/" class="navbar__links">Contact Us</a>
-                    </li>
-                    <li class="navbar__btn">
-                        <a href="Pages/Signin.html" class="button">Sign In</a>
-                    </li>
-                </ul>
             </div>
         </nav>
-
-        <!-- Hero Section -->
-        <div class="main">
-            <div class="main__container">
-                <div class="main__content">
-                    <h1>THIS IS TUTOREX</h1> 
-                    <h2>HELLO WORLD</h2>
-                    <p>Just a Demo</p>
-                    <button class="main__btn"><a href="Pages/Register.html">Register Now</a></button>
-                </div>
-                <!-- <div class="carousel--container">
-                    <i class="fas fa-arrow-left" id="prev__btn"></i>
-                    <i class="fas fa-arrow-right" id="next__btn"></i>
-                    <div class="carousel--slide">
-                        <img src="images/UPRM images/Tarzán.jpg" id="lastClone" alt="" >
-                        <img src="images/UPRM images/UPRM.jpg" alt="">
-                        <img src="images/UPRM images/Portico.jpg" alt="">
-                        <img src="images/UPRM images/Tarzán.jpg" alt="">
-                        <img src="images/UPRM images/UPRM.jpg" id="firstClone" alt=""> -->
-                        <!-- <img src="images/Tutor.jpg" alt="" > -->
-                    <!-- </div>               
-                </div> -->
-            </div>
-        </div>
+        
+        <!-- Home Section -->
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -85,24 +62,27 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="images/UPRM images/UPRM.jpg" class="d-block w-100" alt="..." height="700px">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
+                    <img src="images/UPRM images/UPRM.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-md-block">
+                        <h5 class="animate__animated animate__bounceInRight animate__delay-1s">First slide label</h5>
+                        <p class="animate__animated animate__bounceInLeft animate__delay-2s">Some representative placeholder content for the first slide.</p>
+                        <button class="main__btn animate__animated animate__bounceInLeft animate__delay-3s"><a href="Pages/Register.html">Register Now</a></button>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="images/UPRM images/Portico.jpg" class="d-block w-100" alt="..." height="700px">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
+                    <img src="images/UPRM images/Portico.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-md-block">
+                        <h5 class="animate__animated animate__slideInDown animate__delay-1s">Second slide label</h5>
+                        <p class="animate__animated animate__fadeInDown animate__delay-2s">Some representative placeholder content for the second slide.</p>
+                        <button class="main__btn animate__animated animate__zoomIn animate__delay-3s"><a href="Pages/Register.html">Register Now</a></button>
                     </div>
                 </div>
             <div class="carousel-item">
-                <img src="images/UPRM images/Tarzán.jpg" class="d-block w-100" alt="..." height="700px">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
+                <img src="images/UPRM images/Tarzán.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-md-block">
+                    <h5 class="animate__animated animate__zoomIn animate__delay-1s">Third slide label</h5>
+                    <p class="animate__animated animate__fadeInLeft animate__delay-2s">Some representative placeholder content for the third slide.</p>
+                    <button class="main__btn animate__animated animate__zoomIn animate__delay-3s"><a href="Pages/Register.html">Register Now</a></button>
                 </div>
             </div>
             </div>
@@ -115,7 +95,8 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-
+        <div class="overlay"></div>
+        
         <!-- Tutors Section -->
         <div class="tutors">
             <h1>Tutors</h1>
@@ -209,6 +190,20 @@
             </div>
         </div>
 
+        <!-- Jquery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+        
+        <!-- Function -->
         <script src="func.js"></script>
+
+        <!-- Scroll -->
+        <script>
+            $(window).scroll(function(){
+                $('nav').toggleClass('scrolled', $(this).scrollTop() > 50);
+            }); 
+        </script>
+        
     </body>
 </html>
