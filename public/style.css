@@ -198,7 +198,6 @@
     color: white;
 }
 
-
 /* Tutors Section */
 .tutors {
     background: white;
@@ -213,7 +212,6 @@
     background-color: #078c03;
     background-image: linear-gradient(to top, #078c41 0%, #0DF205 100%);
     background-size: 100%;
-    margin-bottom: 5rem;
     font-size: 2.5rem;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -221,82 +219,168 @@
     -moz-text-fill-color: transparent;
 }
 
-.tutors__container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.profile-area {
+    padding: 30px 0;
 }
 
-.tutors__card {
-    margin: 1rem;
-    height: 525px;
-    width: 800px;
-    border-radius: 4px;
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #078c03 100%),url('images/Study\ Library.jpg');
-    background-size: 100%;
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100hv;
+    margin-top: 3rem;
+}
+
+.card {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.card .img1 img {
+    height: 200px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    width: 100%;
+}
+
+.card .img2 img {
     position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 7px solid;
+    margin-top: -80px;
+    color: black;
+}
+
+.card:hover .img2 img {
+    border-color: #078c03;
+    transition: 0.7s;
+}
+
+.card-body {
+    padding: 30px 0;
+    text-align: center;
+}
+
+.card-body h5 {
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 20px;
+    margin: 0 0 20px;
+    z-index: 2;
+    position: relative;
+}
+
+.card-body p {
+    font-size: 16px;
+    padding: 0 35px;   
+}
+
+.card-body button {
+    font-size: 1.5rem;
+    background-image: linear-gradient(to top, #078c41 0%, #7dad7c 100%);
+    padding: 12px 16px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    margin-top: 1rem;
+    z-index: 2;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.4s;
+    outline: none;
+}
+
+/* button */
+.card-body button a {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-decoration: none;
+}
+
+.card-body button a:hover {
+    color: #078c03;
+}
+
+.card-body button::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: black;
+    transition: all 0.35s;
+    border-radius: 10px;
+}
+
+.card-body button:hover::after {
+    width: 100%;
     color: white;
 }
 
-.tutors__card:nth-child(2){
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #078c03 100%),url('images/Study.jpg');
+.socials {
+    text-align: center;
+    padding-bottom: 20px;
 }
 
-.tutors__card:nth-child(3){
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #078c03 100%),url('images/Read\ Book.jpg');
-}
-
-.tutors__card:nth-child(4){
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #078c03 100%),url('images/Outside\ Laptop.jpg');
-}
-
-.tutors__card h2{
-    position: absolute;
-    top: 350px;
-    left: 30px;
-}
-
-.tutors__card p{
-    position: absolute;
-    top: 400px;
-    left: 30px;
-}
-
-.tutors__card button {
+.socials i {
+    font-size: 20px;
     color: #078c03;
-    padding: 10px 20px;
-    border: none;
-    outline: none;
-    border-radius: 4px;
-    background: white;
-    position: absolute;
-    top: 440px;
-    left: 30px;
-    font-size: 1rem;
-    cursor: pointer;
+    padding: 0 10px;
 }
 
-.tutors__card:hover {
-    transform: scale(1.075);
-    transition: 0.2s ease-in;
-    cursor: pointer;
+.socials i:hover {
+    color: black;
 }
 
-/* mobile responsive */
-@media screen and (max-width: 960px) {
-    .tutors {
-        height: 2400px;
-    }
-
-    .tutors h1 {
-        font-size: 2rem;
-    }
-
-    .tutors__card {
-        width: 400px;
-    }
+/* Count Up Section */
+.counter-container {
+    padding: 50px 0;
 }
 
+.counter-box {
+    display: block;
+    background: #f6f6f6;
+    padding: 40px 20px 37px;
+    text-align: center
+}
+
+.counter-box p {
+    padding: 0;
+    color: #909090;
+    font-size: 18px;
+    font-weight: 500
+}
+
+.counter-box i {
+    font-size: 60px;
+    margin: 0 0 15px;
+    color: #d2d2d2
+}
+
+.counter {
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    color: #666;
+    line-height: 28px
+}
+
+.counter-box:hover {
+    background: #078c03;
+}
+
+.counter-box.colored p, .counter-box.colored i, .counter-box.colored .counter {
+    color: #fff
+}
 
 /* Fotter Section */
 .footer__container {
@@ -377,6 +461,15 @@
     justify-content: space-between;
     align-items: center;
     width: 240px;
+    font-size: 25px;
+}
+
+.social__icons a {
+    color: #078c03;
+}
+
+.social__icons a:hover {
+    color: white;
 }
 
 .footer__logo {
@@ -429,3 +522,81 @@
 
 }
 
+/* ////////////////////////////////////////////////////////////// */
+
+/* Tutor Page */
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100hv;
+    margin-top: 8rem;
+    
+}    
+
+.title h1 {
+    background-color: #078c03;
+    background-image: linear-gradient(to top, #078c41 0%, #0DF205 100%);
+    background-size: 100%;
+    font-size: 2.5rem;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+/* Body Section */
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin-bottom: 8rem;
+}
+
+.card {
+    cursor: pointer;
+    width: 340px;
+    height: 620px;
+}
+
+.front, .back {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    transition: transform 0.6s linear;
+}
+
+.front .card-body h5 {
+    color: black;
+    font-size: 35px;
+    margin-top: 280px;
+    align-content: center;
+}
+
+.front .img1 img {
+    height: 620px;
+    position: absolute;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.front {
+    transform: perspective(600px) rotateY(0deg);
+}
+
+.back {
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.card:hover > .front {
+    transform: perspective(600px) rotateY(-180deg);
+}
+
+.card:hover > .back {
+    transform: perspective(600px) rotateY(0deg);
+}
