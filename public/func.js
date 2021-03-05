@@ -1,3 +1,4 @@
+// Counter Animation
 $(document).ready(function() {
     $('.counter').each(function () {
         $(this).prop('Counter',0).animate(
@@ -7,4 +8,4 @@ $(document).ready(function() {
                 }
         });
     });
-});
+})
