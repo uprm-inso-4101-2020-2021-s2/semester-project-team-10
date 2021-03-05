@@ -1,3 +1,4 @@
+
 //Page Description: This is the file for the rest API
 
 const express = require("express"); //import express and
@@ -27,6 +28,7 @@ app.post("/api/registered", async (req, res) => {
 })
 app.get("/", function(req, res){
     res.sendFile(__dirname + "/index.html");
+    //res.render("index");
 });
 
 app.listen(process.env.PORT || 8080, function(){
