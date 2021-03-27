@@ -600,6 +600,8 @@
 .card:hover > .back {
     transform: perspective(600px) rotateY(0deg);
 }
+/* ////////////////////////////////////////////////////////////// */
+
 /* Full-width input fields */
 input[type=text], input[type=password] {
     width: 100%;
