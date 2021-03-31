@@ -524,6 +524,133 @@
 
 /* ////////////////////////////////////////////////////////////// */
 
+/* Contact Us Page */
+.contact {
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contact .content_text {
+    max-width: 800px;
+    text-align: center;
+    margin-top: 8rem;
+}    
+
+.contact .content_text h1 {
+    background-size: 100%;
+    font-size: 36px;
+    color: #078c03;
+}
+
+.contact .content_text p {
+    font-size: 18px;
+    font-weight: 300;
+}
+.container_contact {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.container_contact .contactInfo {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container_contact .contactInfo .box {
+    position: relative;
+    padding: 20px 0;
+    display: flex;   
+}
+
+.container_contact .contactInfo .box .icon {
+    min-width: 60px;
+    height: 60px;
+    background: #078c03;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 22px;
+}
+
+.container_contact .contactInfo .box .text {
+    display: flex;
+    margin-left: 20px;
+    font-size: 16px;
+    flex-direction: column;
+    font-weight: 300;
+}
+
+.container_contact .contactInfo .box .text h1 {
+    font-size: 36px;
+    font-weight: 500;
+    color: #078c03;
+}
+
+.contactForm {
+    width: 30%;
+    padding: 40px;
+    justify-content: center;
+    align-items: center;
+    background: gray;
+}
+
+.contactForm h1 {
+    font-size: 30px;
+    color: black;
+    font-size: 500;
+}
+
+#FormControlInput1 {
+    font-size: 16px;
+}
+
+#FormControlInput2 {
+    font-size: 16px;
+}
+
+#Textarea1 {
+    font-size: 16px;
+    outline: none;
+    resize: none;
+}
+
+@media screen and (max-width: 820px){
+    .contact {
+        padding: 50px;
+    }    
+
+    .container_contact {
+        flex-direction: column;
+    }
+
+    .contactForm {
+        width: 100%;
+        padding: 40px;
+        background: gray;
+    }
+    
+    .contactInfo{
+        margin-bottom: 40px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #PhoneText {
+        margin-right: 30px;
+    }
+}
+/* ////////////////////////////////////////////////////////////// */
+
 /* Tutor Page */
 .title {
     display: flex;
