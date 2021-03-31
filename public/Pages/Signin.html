@@ -17,7 +17,7 @@
     <!-- Animation CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-    <title>Register</title>
+    <title>Sign In</title>
   </head>
   <body>
     <!-- Nav Section -->
@@ -41,37 +41,39 @@
                     <li class="nav-item">
                         <a class="nav-link ms-4" href="/">Contact Us</a>
                     </li>
-                    <li class="nav-item">
-                        <button onclick="document.getElementById('id01').style.display='block'" class="nav__btn ms-4">Login</button>
+                    <li>
+                        <button class="nav__btn ms-4"><a href="/Pages/Register.html">Register</a></button>
                     </li>
+
                 </ul>
             </div>
         </div>
     </nav>
     
-
-    
-
-
-    
     <!-- Sign in Section-->
-    <div class="sign" style="width: 50%;">
-        <div class="mb-3 row">
-          <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-          <div class="col-sm-10">
-            <input type="text"class="form-control">
-          </div>
-         </div>
-        <div class="mb-3 row">
-         <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-            <div class="col-sm-10">
-              <input type="password" class="form-control" id="inputPassword">
+    <div class="sign container-fluid translate-middle" style="width: 50%;">
+        <form action="/sign in" method="POST">
+            <div class="mb-4 row">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input name="email" id="email" type="email" class="form-control" placeholder="Enter Email" required>
+                </div>
             </div>
-        </div>
-        <button type="button" class="btn btn-success">Success</button>
-    </div> 
-
-     
+            <div class="mb-4 row">
+                <label for="password" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <input name="passsword" id="password" type="password" class="form-control" placeholder="Enter Password" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success">Login</button>
+            <div class="container">
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
