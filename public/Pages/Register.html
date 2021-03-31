@@ -55,25 +55,31 @@
         </div>
     </nav>
 
-    <!--Sign in Section-->
+    <!--Register-->
     <div class="sign container-fluid translate-middle" style="width: 50%;">
-        <form action="/api/registered" method="POST">
+        <form action="/register" method="POST">
             <div class="mb-3 row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
                 <div class="col-sm-10">
-                    <input name="email" type="text" class="form-control" required>
+                    <input name="firstName" type="text" class="form-control" required>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-10">
+                    <input name="lastName" type="text" class="form-control" required>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input name="email" type="email" class="form-control" required>
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
                 <div class="col-sm-10">
                     <input name="password" type="password" class="form-control" id="inputPassword" required>
-                </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Student #</label>
-                <div class="col-sm-10">
-                    <input name="stdNum" type="number" class="form-control" required>
                 </div>
             </div>
             <button type="submit" class="btn btn-success">Success</button>

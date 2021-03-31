@@ -1,11 +1,17 @@
-
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 //Page Description: This is the file for the rest API
 
 const express = require("express"); //import express and
 const app = express();              //create a new instance
 const bodyParser = require('body-parser');
 const {Prohairesis} = require('prohairesis');
-
+const bcrypt = require('bcrypt')
+const passport = require('passport')
+const flash = require('express-flash')
+const session = require('express-session')
+const methodOverride = require('method-override')
 
 const mySQLString = 'mysql://be3800dd31540b:17967a93@us-cdbr-east-03.cleardb.com/heroku_cc4f88e5de0ff25?reconnect=true';
 const database = new Prohairesis(mySQLString);
@@ -18,27 +24,30 @@ app
     .use(bodyParser.json())
 
     .get("/", function(req, res){
-        res.sendFile(__dirname + "/index.html");
+        res.sendFile(__dirname + "/");
         //res.render("index");
     })
 
     //registering new user
-    .post("/api/registered", async(req,res) => {
-        const {email, password, stdNum} = req.body;
+    .post("/register", async(req,res) => {
+        const {firstName, lastName, email, password} = req.body;
 
         try {
             const user = await database.query(`
                 INSERT INTO users(
-                    name,
+                    firstName,
+                    lastName,
                     email,
                     password
                 ) VALUES (
-                    @stdNum,
+                    @firstName,
+                    @lastName,
                     @email,
                     @password
                 )                    
                 `,{
-                    stdNum,
+                    firstName,
+                    lastName,
                     email,
                     password
                 });
