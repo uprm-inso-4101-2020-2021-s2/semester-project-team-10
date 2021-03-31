@@ -1,12 +1,13 @@
 if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
-}
+    require('dotenv').config()
+}   
 //Page Description: This is the file for the rest API
 
 const express = require("express"); //import express and
 const app = express();              //create a new instance
 const bodyParser = require('body-parser');
 const {Prohairesis} = require('prohairesis');
+
 const bcrypt = require('bcrypt')
 const passport = require('passport')
 const flash = require('express-flash')
@@ -31,6 +32,7 @@ app
     //registering new user
     .post("/register", async(req,res) => {
         const {firstName, lastName, email, password} = req.body;
+
 
         try {
             const user = await database.query(`
@@ -61,17 +63,16 @@ app
             }
         })
 
-    //logging in
-    .put("/api/login", async(req,res) => {
-        const {uname, uemail, upassword} = req.body;
+    //Sign in
+    .put("/sign in", async(req,res) => {
+        const {uemail, upassword} = req.body;
 
         try {
             const user = await database.query(`
                 SELECT * FROM users
-                    WHERE name = @name
-                    AND password = SHA2(@password,256)`,
+                    WHERE email = @uemail
+                    AND password = SHA2(@upassword,256)`,
                 {
-                    uname,
                     uemail,
                     upassword,
                 });
