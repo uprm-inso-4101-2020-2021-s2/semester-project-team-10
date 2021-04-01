@@ -22,6 +22,7 @@
     <body>
 
         <!-- Nav Section -->
+    <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-color container py-3 fixed-top" style="background-color: black;">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">
@@ -39,9 +40,9 @@
                         <li class="nav-item">
                             <a class="nav-link ms-4" href="Tutors&Subjects.html">Tutors & Subjects</a>
                         </li>
-                        <!-- <li class="nav-item">
+                         <li class="nav-item">
                             <a class="nav-link ms-4" href="Subject.html">Subject</a>
-                        </li> -->
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link ms-4" href="ContactUs.html">Contact Us</a>
                         </li>
@@ -52,155 +53,176 @@
                 </div>
             </div>
         </nav>
-        
-        <!-- Tutor Section -->
-        <div class="title">
-            <h1>Tutors</h1>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card middle">
-                    <div class="front">
-                        <div class="card">
-                            <div class="img1">
-                                <img src="/images/UPRM images/Tarzán.jpg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Subject</h5>
-                            </div>
+    </div>
+
+        <!-- Subjects Navbar -->
+
+        <nav>
+          <div class="nav nav-pills nav-justified" id="pills-tab" role="tablist" style="padding-top: 100px;">
+            <button class="nav-link active" id="pills-MATH-tab" data-bs-toggle="pill" data-bs-target="#pills-MATH" type="button" role="tab" aria-controls="pills-MATH" aria-selected="true">MATH</button>
+            <button class="nav-link" id="pills-PHYSICS-tab" data-bs-toggle="pill" data-bs-target="#pills-PHYSICS" type="button" role="tab" aria-controls="pills-PHYSICS" aria-selected="false">PHYSICS</button>
+            <button class="nav-link" id="pills-CHEMISTRY-tab" data-bs-toggle="pill" data-bs-target="#pills-CHEMISTRY" type="button" role="tab" aria-controls="pills-CHEMISTRY" aria-selected="false">CHEMISTRY</button>
+            <button class="nav-link" id="pills-HUMANITIES-tab" data-bs-toggle="pill" data-bs-target="#pills-HUMANITIES" type="button" role="tab" aria-controls="pills-HUMANITIES" aria-selected="false">HUMANITIES</button>
+            <button class="nav-link" id="pills-CUMPUTER-SCIENCE-tab" data-bs-toggle="pill" data-bs-target="#pills-COMPUTER-SCIENCE" type="button" role="tab" aria-controls="pills-COMPUTER-SCIENCE" aria-selected="false">COMPUTER SCIENCE</button>
+          </div>
+        </nav>
+
+
+            <!--Tutors per course section-->
+            <div class="container">
+              <div class="row align-items-start">
+                <div class="col">
+                  <div class="tab-content" id="pills-tabContent">
+                      <div class="tab-pane fade show active" id="pills-MATH" role="tabpanel" aria-labelledby="pills-MATH-tab">
+                        <nav class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
+                          <button class="nav-link active" id="v-pills-PRECALCULUS-1-tab" data-bs-toggle="pill" data-bs-target="#v-pills-PRECALCULUS-1" type="button" role="tab" aria-controls="v-pills-PRECALCULUS-1" aria-selected="true">PRECALCULUS 1</button>
+                          <button class="nav-link" id="v-pills-PRECALCULUS-2-tab" data-bs-toggle="pill" data-bs-target="#v-pills-PRECALCULUS-2" type="button" role="tab" aria-controls="v-pills-PRECALCULUS-2" aria-selected="false">PRECALCULUS 2</button>
+                          <button class="nav-link" id="v-pills-CALCULUS-1-tab" data-bs-toggle="pill" data-bs-target="#v-pills-CALCULUS-1" type="button" role="tab" aria-controls="v-pills-CALCULUS-1" aria-selected="false">CALCULUS 1</button>
+                          <button class="nav-link" id="v-pills-CALCULUS-2-tab" data-bs-toggle="pill" data-bs-target="#v-pills-CALCULUS-2" type="button" role="tab" aria-controls="v-pills-CALCULUS-2" aria-selected="false">CALCULUS 2</button>
+                          <button class="nav-link" id="v-pills-CALCULUS-3-tab" data-bs-toggle="pill" data-bs-target="#v-pills-CALCULUS-3" type="button" role="tab" aria-controls="v-pills-CALCULUS-3" aria-selected="false">CALCULUS 3</button>
+                        </nav>
+                      </div>
+                      <div class="tab-pane fade" id="pills-PHYSICS" role="tabpanel" aria-labelledby="pills-PHYSICS-tab">
+                        <nav class="nav flex-column nav-pills" id="p-pills-tab" role="tablist">
+                          <button class="nav-link active" id="p-pills-PHYSICS-1-tab" data-bs-toggle="pill" data-bs-target="#p-pills-PHYSICS-1" type="button" role="tab" aria-controls="p-pills-PHYSICS-1" aria-selected="true">PHYSICS 1</button>
+                          <button class="nav-link" id="p-pills-PHYSICS-2-tab" data-bs-toggle="pill" data-bs-target="#p-pills-PHYSICS-2" type="button" role="tab" aria-controls="p-pills-PHYSICS-2" aria-selected="false">PHYSICS 2</button>
+                        </nav>
+                      </div>
+
+
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-PRECALCULUS-1" role="tabpanel" aria-labelledby="v-pills-PRECALCULUS-1-tab">
+                      <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                              1- John Doe
+                            </button>
+                          </h2>
+                          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">First rate student of this course.</div>
+                            <button type="button" class="btn btn-outline-success"> <a href="Profile.html"> Profile</a></button>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                              2- Jane Doe
+                            </button>
+                          </h2>
+                          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Second rate student of this course.</div>
+                            <button type="button" class="btn btn-outline-success"> <a href="Profile.html"> Profile</a></button>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                              3- Peter Parker
+                            </button>
+                          </h2>
+                          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Third rate student of this course.</div>
+                            <button type="button" class="btn btn-outline-success"> <a href="Profile.html"> Profile</a></button>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="flush-headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                              4- Bruce Wayne
+                            </button>
+                          </h2>
+                          <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Fourth rate student of this course.</div>
+                            <button type="button" class="btn btn-outline-success"> <a href="Profile.html"> Profile</a></button>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="flush-headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                              5- Clark Kent
+                            </button>
+                          </h2>
+                          <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Fifth rate student of this course.</div>
+                            <button type="button" class="btn btn-outline-success"> <a href="Profile.html"> Profile</a></button>
+                          </div>
                         </div>
                     </div>
-                    <div class="back">
-                        <div class="card">
-                            <div class="img1">
-                                <img src="/images/UPRM images/Tarzán2.jpeg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="img2">
-                                <a href="/Pages/Profile.html"><img src="/images/Study Library.jpg" class="card-img-top" alt="..."></a>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Tutor 1</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <button><a href="Register.html">Meet Now</a></button>
-                            </div>
-                            <div class="socials">
-                                <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-instagram"></i></a>
-                                <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-facebook"></i></a>
-                                <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-linkedin"></i></a>
-                                <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-twitter"></i></a>
-                                <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-youtube"></i></a>
-                            </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-PRECALCULUS-2" role="tabpanel" aria-labelledby="v-pills-PRECALCULUS-2-tab">
+                      <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                              1- Mario
+                            </button>
+                          </h2>
+                          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">First rate student of this course.</div>
+                            <button type="button" class="btn btn-outline-success"> <a href="Profile.html"> Profile</a></button>
+                          </div>
                         </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                              2- Luigi
+                            </button>
+                          </h2>
+                          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Second rate student of this course.</div>
+                            <button type="button" class="btn btn-outline-success"> <a href="Profile.html"> Profile</a></button>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                              3- Princess Peach
+                            </button>
+                          </h2>
+                          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Third rate student of this course.</div>
+                            <button type="button" class="btn btn-outline-success"> <a href="Profile.html"> Profile</a></button>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="flush-headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                              4- Wario
+                            </button>
+                          </h2>
+                          <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Fourth rate student of this course.</div>
+                            <button type="button" class="btn btn-outline-success"> <a href="Profile.html"> Profile</a></button>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="flush-headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                              5- Bowser
+                            </button>
+                          </h2>
+                          <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Fifth rate student of this course.</div>
+                            <button type="button" class="btn btn-outline-success"> <a href="Profile.html"> Profile</a></button>
+                          </div>
+                        </div>
+                    </div>
                     </div>
                 </div>
+
+              </div>
             </div>
-            <div class="col-md-3">
-                <div class="card middle">
-                    <div class="front">
-                        <div class="card">
-                            <div class="img1">
-                                <img src="/images/UPRM images/Tarzán.jpg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Subject</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="back">
-                        <div class="card">
-                            <div class="img1">
-                                <img src="/images/UPRM images/Tarzán2.jpeg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="img2">
-                                <a href="/Pages/Profile.html" ><img src="/images/Study.jpg" class="card-img-top" alt="..."></a>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Tutor 2</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <button><a href="Register.html">Meet Now</a></button>
-                            </div>
-                            <div class="socials">
-                                <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-instagram"></i></a>
-                                <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-facebook"></i></a>
-                                <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-linkedin"></i></a>
-                                <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-twitter"></i></a>
-                                <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-youtube"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+              
+                
+
+
             </div>
-            <div class="col-md-3">
-                <div class="card middle">
-                    <div class="front">
-                        <div class="card">
-                            <div class="img1">
-                                <img src="/images/UPRM images/Tarzán.jpg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Subject</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="back">
-                        <div class="card">
-                            <div class="img1"><img src="/images/UPRM images/Tarzán2.jpeg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="img2">
-                                <a href="/Pages/Profile.html"><img src="/images/Read Book.jpg" class="card-img-top" alt="..."></a>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Tutor 3</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                                <button><a href="Register.html">Meet Now</a></button>
-                            </div>
-                            <div class="socials">
-                                <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-instagram"></i></a>
-                                <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-facebook"></i></a>
-                                <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-linkedin"></i></a>
-                                <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-twitter"></i></a>
-                                <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-youtube"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card middle">
-                    <div class="front">
-                        <div class="card">
-                            <div class="img1">
-                                <img src="/images/UPRM images/Tarzán.jpg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Subject</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="back">
-                        <div class="card">
-                            <div class="img1">
-                                <img src="/images/UPRM images/Tarzán2.jpeg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="img2">
-                                <a href="/Pages/Profile.html"><img src="/images/Outside Laptop.jpg" class="card-img-top" alt="..."></a>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Tutor 4</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <button><a href="Register.html">Meet Now</a></button>
-                            </div>
-                            <div class="socials">
-                                <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-instagram"></i></a>
-                                <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-facebook"></i></a>
-                                <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-linkedin"></i></a>
-                                <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-twitter"></i></a>
-                                <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-youtube"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
         
         
