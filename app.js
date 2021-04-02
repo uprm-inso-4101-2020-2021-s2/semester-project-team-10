@@ -14,6 +14,15 @@ const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
 
+const initializePassport = require('./passport-config')
+
+initializePassport(
+    passport, 
+    email => database.query(`SELECT userId FROM users WHERE email = @email`, {email})[0],
+    id =>  database.query(`SELECT userId FROM users WHERE userId = @userId`, {userId})[0],
+    password =>  database.query(`SELECT password FROM users WHERE userId = @userId`, {userId})[0]
+    )
+
 const mySQLString = 'mysql://be3800dd31540b:17967a93@us-cdbr-east-03.cleardb.com/heroku_cc4f88e5de0ff25?reconnect=true';
 const database = new Prohairesis(mySQLString);
 
@@ -23,6 +32,15 @@ app
     .use(express.static("public"))
     .use(bodyParser.urlencoded({extended: false}))
     .use(bodyParser.json())
+
+    .use(flash())
+    .use(session({
+        secret: process.env['SESSION_SECRET'],
+        resave: false,
+        saveUninitialized: false
+    }))
+    .use(passport.initialize())
+    .use(passport.session())
 
     .get("/", function(req, res){
         res.sendFile(__dirname + "/");
@@ -55,7 +73,7 @@ app
                 });
 
                 res.status(200);
-                res.end('Added user');
+                res.redirect('/Pages/Signin.html');
             } catch (e) {
                 console.error('Error adding user');
                 res.status(500);
@@ -64,34 +82,22 @@ app
         })
 
     //Sign in
-    .put("/sign in", async(req,res) => {
-        const {uemail, upassword} = req.body;
+    .get("/signin", async(req, res) =>{
+        res.redirect('/Pages/Signin.html');
+    })
 
-        try {
-            const user = await database.query(`
-                SELECT * FROM users
-                    WHERE email = @uemail
-                    AND password = SHA2(@upassword,256)`,
-                {
-                    uemail,
-                    upassword,
-                });
-
-                res.status(200);
-                res.end('User exists');
-            } catch (e) {
-                console.error('Error adding user');
-                res.status(500);
-                res.end('Error finding user. Does this user exist?');
-            }
-        })
+    .post("/signin", passport.authenticate('local',{
+        sucessRedirect: '/',
+        failureRedirect: '/signin',
+        failureFlash: true
+        }))
     
     //Find a user
-    .get("/api/login", async(req,res) => {
+    /*.get("/api/login", async(req,res) => {
         //we may add anything here
-        res.sendFile(__dirname + "/index.html");
+        //res.sendFile(__dirname + "/index.html");
         try {
-            //below will get an array of users
+            below will get an array of users
             const users = await database.query(`
                 SELECT
                     name,
@@ -106,7 +112,7 @@ app
                 res.status(500);
                 res.end('Error finding users. Does this user exist?');
             }
-        })   
+        }))  */ 
 
 app.listen(process.env.PORT || 8080, function(){
     console.log("Server is Running 8080");
