@@ -14,14 +14,22 @@ const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
 
-const initializePassport = require('./passport-config')
+//const initializePassport = require('./passport-config')
 
+
+const initializePassport = require('./passport-config')
 initializePassport(
+  passport,
+  async email => await database.query(`SELECT * FROM users WHERE email = @email`, {email}),
+  async id =>  await database.query(`SELECT * FROM users WHERE userId = @userId`, {id})
+  )
+
+/*initializePassport(
     passport, 
-    email => database.query(`SELECT userId FROM users WHERE email = @email`, {email})[0],
-    id =>  database.query(`SELECT userId FROM users WHERE userId = @userId`, {userId})[0],
-    password =>  database.query(`SELECT password FROM users WHERE userId = @userId`, {userId})[0]
-    )
+    email => database.query(`SELECT userId FROM users WHERE email = @email`, {email}),
+    id =>  database.query(`SELECT userId FROM users WHERE userId = @userId`, {userId}),
+    password =>  database.query(`SELECT password FROM users WHERE userId = @userId`, {userId})
+    )*/
 
 const mySQLString = 'mysql://be3800dd31540b:17967a93@us-cdbr-east-03.cleardb.com/heroku_cc4f88e5de0ff25?reconnect=true';
 const database = new Prohairesis(mySQLString);
@@ -47,12 +55,16 @@ app
         //res.render("index");
     })
 
+    .get("/home", function(req, res){
+        res.render("Logged In");
+    })
+
     //registering new user
     .post("/register", async(req,res) => {
         const {firstName, lastName, email, password} = req.body;
 
-
         try {
+            //const hashedPassword = await bcrypt.hash(password, 10)
             const user = await database.query(`
                 INSERT INTO users(
                     firstName,
@@ -87,7 +99,7 @@ app
     })
 
     .post("/signin", passport.authenticate('local',{
-        sucessRedirect: '/',
+        sucessRedirect: '/home',
         failureRedirect: '/signin',
         failureFlash: true
         }))
