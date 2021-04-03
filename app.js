@@ -56,7 +56,7 @@ app
     })
 
     .get("/home", function(req, res){
-        res.render("Logged In");
+        res.end("Logged In");
     })
 
     //registering new user
@@ -99,7 +99,7 @@ app
     })
 
     .post("/signin", passport.authenticate('local',{
-        sucessRedirect: '/home',
+        successRedirect: '/home',
         failureRedirect: '/signin',
         failureFlash: true
         }))
