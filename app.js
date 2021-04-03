@@ -14,22 +14,14 @@ const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
 
-//const initializePassport = require('./passport-config')
-
 
 const initializePassport = require('./passport-config')
 initializePassport(
   passport,
   async email => await database.query(`SELECT * FROM users WHERE email = @email`, {email}),
-  async id =>  await database.query(`SELECT * FROM users WHERE userId = @userId`, {id})
+  async userId =>  await database.query(`SELECT * FROM users WHERE userId = @userId`, {userId})
   )
 
-/*initializePassport(
-    passport, 
-    email => database.query(`SELECT userId FROM users WHERE email = @email`, {email}),
-    id =>  database.query(`SELECT userId FROM users WHERE userId = @userId`, {userId}),
-    password =>  database.query(`SELECT password FROM users WHERE userId = @userId`, {userId})
-    )*/
 
 const mySQLString = 'mysql://be3800dd31540b:17967a93@us-cdbr-east-03.cleardb.com/heroku_cc4f88e5de0ff25?reconnect=true';
 const database = new Prohairesis(mySQLString);
@@ -37,6 +29,7 @@ const database = new Prohairesis(mySQLString);
 
 
 app
+    //.set('view-engine', 'ejs')
     .use(express.static("public"))
     .use(bodyParser.urlencoded({extended: false}))
     .use(bodyParser.json())
@@ -49,18 +42,19 @@ app
     }))
     .use(passport.initialize())
     .use(passport.session())
+    .use(methodOverride('_method'))
 
     .get("/", function(req, res){
         res.sendFile(__dirname + "/");
         //res.render("index");
     })
 
-    .get("/home", function(req, res){
-        res.end("Logged In");
+    .get("/home", checkAuthenticated, (req, res)=>{
+        res.send(JSON.stringify(req.user))
     })
 
     //registering new user
-    .post("/register", async(req,res) => {
+    .post("/register", checkNotAuthenticated, async(req,res) => {
         const {firstName, lastName, email, password} = req.body;
 
         try {
@@ -94,37 +88,35 @@ app
         })
 
     //Sign in
-    .get("/signin", async(req, res) =>{
+    .get("/signin", checkNotAuthenticated, (req, res) =>{
         res.redirect('/Pages/Signin.html');
     })
 
-    .post("/signin", passport.authenticate('local',{
+    .post("/signin",checkNotAuthenticated, passport.authenticate('local',{
         successRedirect: '/home',
         failureRedirect: '/signin',
         failureFlash: true
         }))
     
-    //Find a user
-    /*.get("/api/login", async(req,res) => {
-        //we may add anything here
-        //res.sendFile(__dirname + "/index.html");
-        try {
-            below will get an array of users
-            const users = await database.query(`
-                SELECT
-                    name,
-                FROM
-                    users
-                `);
+    .delete('/logout', (req, res) => {
+        req.logOut()
+        res.redirect('/signin')
+    })
 
-                res.status(200);
-                res.json(users);
-            } catch (e) {
-                console.error('Error retrieving users');
-                res.status(500);
-                res.end('Error finding users. Does this user exist?');
-            }
-        }))  */ 
+    function checkAuthenticated(req, res, next) {
+        if (req.isAuthenticated()) {
+            return next()
+        }
+
+        res.redirect('/signin')
+    }
+
+    function checkNotAuthenticated(req, res, next) {
+        if (req.isAuthenticated()) {
+            return res.redirect('/')
+        }
+        next()
+    }
 
 app.listen(process.env.PORT || 8080, function(){
     console.log("Server is Running 8080");
