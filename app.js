@@ -93,9 +93,18 @@ app
         res.render('Register.ejs')
     })
 
-    .get("/subjects", checkAuthenticated, (req, res) =>{
+    .get("/subjects", checkAuthenticated, async (req, res) =>{
         //res.redirect('/Pages/Signin.html');
-        res.render('Tutors&Subjects.ejs')
+        const courses = await database.query(`SELECT * FROM courses`)
+        res.render('Subjects.ejs', {data: {courses: courses}})
+    })
+
+    .get("/tutors", checkAuthenticated, async (req, res) =>{
+        //res.redirect('/Pages/Signin.html');
+        //const cname = req.data.courses.courseCode
+        //const cnum = req.data.courses.courseNumber
+        const tutors = await database.query(`SELECT * FROM tutors NATURAL JOIN users`)
+        res.render('Tutors.ejs', {data: {tutors: tutors}})
     })
 
     //Sign in
