@@ -55,7 +55,7 @@
                     <div class="d-flex flex-column align-items-center text-center">
                         <img src="/images/profile_icon.png" alt="Admin" class="rounded-circle" width="150">
                         <div class="mt-3">
-                        <h4>John Doe</h4>
+                        <h4> <%= data.firstName%> <%= data.lastName %></h4>
                         <p class="text-secondary mb-1"><i class="fas fa-briefcase info"></i> Tutor</p>
                         <p class="text-muted font-size-sm">Mayaguez, Puerto Rico</p>
                         <button type="button" class="btn btn-outline-success">Follow</button>
@@ -97,7 +97,7 @@
                         <h6 class="mb-0"><i class="fas fa-user" style="color: #078c03;"></i> Full Name</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                        John Doe
+                            <%= data.firstName%> <%= data.lastName %>
                         </div>
                     </div>
                     <hr>
@@ -106,7 +106,7 @@
                         <h6 class="mb-0"><i class="fas fa-envelope info"></i>Email</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                        john.doe@upr.edu
+                            <%= data.email%>
                         </div>
                     </div>
                     <hr>

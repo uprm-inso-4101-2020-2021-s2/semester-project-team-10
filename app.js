@@ -29,7 +29,7 @@ const database = new Prohairesis(mySQLString);
 
 
 app
-    //.set('view-engine', 'ejs')
+    .set('view-engine', 'ejs')
     .use(express.static("public"))
     .use(bodyParser.urlencoded({extended: false}))
     .use(bodyParser.json())
@@ -45,12 +45,13 @@ app
     .use(methodOverride('_method'))
 
     .get("/", function(req, res){
-        res.sendFile(__dirname + "/");
-        //res.render("index");
+        //res.sendFile(__dirname + "/");
+        res.render('index.ejs');
     })
 
-    .get("/home", checkAuthenticated, (req, res)=>{
-        res.send(JSON.stringify(req.user))
+    .get("/profile", checkAuthenticated, (req, res)=>{
+        //res.send(req.user);
+        res.render('Profile.ejs', {data: {firstName: req.user.firstName, lastName: req.user.lastName, email: req.user.email}});
     })
 
     //registering new user
@@ -89,11 +90,12 @@ app
 
     //Sign in
     .get("/signin", checkNotAuthenticated, (req, res) =>{
-        res.redirect('/Pages/Signin.html');
+        //res.redirect('/Pages/Signin.html');
+        res.render('Signin.ejs')
     })
 
     .post("/signin",checkNotAuthenticated, passport.authenticate('local',{
-        successRedirect: '/home',
+        successRedirect: '/profile',
         failureRedirect: '/signin',
         failureFlash: true
         }))
