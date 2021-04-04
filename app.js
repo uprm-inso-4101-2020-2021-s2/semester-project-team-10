@@ -88,6 +88,16 @@ app
             }
         })
 
+    .get("/register", checkNotAuthenticated, (req, res) =>{
+        //res.redirect('/Pages/Signin.html');
+        res.render('Register.ejs')
+    })
+
+    .get("/subjects", checkAuthenticated, (req, res) =>{
+        //res.redirect('/Pages/Signin.html');
+        res.render('Tutors&Subjects.ejs')
+    })
+
     //Sign in
     .get("/signin", checkNotAuthenticated, (req, res) =>{
         //res.redirect('/Pages/Signin.html');
