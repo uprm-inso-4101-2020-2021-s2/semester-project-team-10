@@ -19,6 +19,7 @@
     font-weight: bold;
 }
 
+
 .navbar .navbar-brand {
     color: white !important;
     font-size: 35px;
@@ -35,8 +36,7 @@
     letter-spacing: 0.5px;
     padding: 0;
     text-transform: uppercase;
-    transition: all ease-in 0.4s;
-    
+    transition: all ease-in 0.4s;   
 }
 
 .navbar .navbar-nav a:hover {
@@ -295,6 +295,29 @@
     position: relative;
     transition: all 0.4s;
     outline: none;
+}
+
+/* Tutors&Subjects Page*/
+.nav-pills {
+    background-color: black;
+}
+
+@media screen and (max-width: 720px) {
+    .container{
+        width: 50%;
+    }
+    .nav-pills{
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    .container{
+        width: 50%;
+    }
+    .nav-pills{
+        margin-top: 50px;
+    }
 }
 
 /* button */
@@ -670,6 +693,11 @@
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
+}
+
+.navbar-collapse {
+    justify-content: center;
+    align-items: center;
 }
 
 /* Body Section */
