@@ -49,6 +49,10 @@ app
         res.render('index.ejs');
     })
 
+    .get("/session", function(req, res){
+        res.render('Session.ejs');
+    })
+
     .get("/profile", checkAuthenticated, (req, res)=>{
         //res.send(req.user);
         res.render('Profile.ejs',
