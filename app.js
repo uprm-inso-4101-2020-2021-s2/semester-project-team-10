@@ -49,8 +49,12 @@ app
         res.render('index.ejs');
     })
 
-    .get("/session", function(req, res){
-        res.render('Session.ejs');
+    .get("/create_session", function(req, res){
+        res.render('Create_Session.ejs');
+    })
+    
+    .get("/sessions", function(req, res){
+        res.render('Sessions.ejs');
     })
 
     .get("/profile", checkAuthenticated, (req, res)=>{
