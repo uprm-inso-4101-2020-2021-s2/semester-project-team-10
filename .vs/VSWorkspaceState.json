@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\public",
-    "\\public\\Pages"
+    "\\public\\Pages",
+    "\\views"
   ],
-  "SelectedNode": "\\package.json",
+  "SelectedNode": "\\views\\Tutors.ejs",
   "PreviewInSolutionExplorer": false
 }

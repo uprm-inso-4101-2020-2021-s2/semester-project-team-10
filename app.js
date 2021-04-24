@@ -51,7 +51,11 @@ app
 
     .get("/profile", checkAuthenticated, (req, res)=>{
         //res.send(req.user);
-        res.render('Profile.ejs', {data: {firstName: req.user.firstName, lastName: req.user.lastName, email: req.user.email}});
+        res.render('Profile.ejs',
+        {data: {
+        firstName: req.user.firstName, 
+        lastName: req.user.lastName, 
+        email: req.user.email}});
     })
 
     //registering new user
@@ -99,7 +103,48 @@ app
         res.render('Subjects.ejs', {data: {courses: courses}})
     })
 
-    .get("/tutors", checkAuthenticated, async (req, res) =>{
+    .get("/course/select", checkAuthenticated, async (req, res) =>{
+        //res.redirect('/Pages/Signin.html');
+        const courses = await database.query(`SELECT * FROM courses`)
+        res.render('Subjects.ejs', {data: {courses: courses}})
+    })
+    .post("/course/take", checkAuthenticated, async (req, res) =>{
+        await database.query(`SELECT * FROM courses`)
+        res.redirect('/mystudies');
+        res.render('Subjects.ejs', {data: {courses: courses}})
+    })
+
+    .post("/course/teach", checkAuthenticated, async (req, res) =>{
+        await database.query(`SELECT * FROM courses`)
+        res.redirect('/myteachings');
+        res.render('Subjects.ejs', {data: {courses: courses}})
+    })
+
+    .get("/mystudies", checkAuthenticated, async (req, res) =>{
+        //res.redirect('/Pages/Signin.html');
+        const id  = req.user.userID
+        const courses = await database.query(`select courseCode, courseNumber 
+                                                from users, courses, takes, students
+                                                where users.userId = students.userID 
+                                                        and students.studentID = takes.studentId
+                                                        and takes.courseId = courses.courseId 
+                                                        and students.userID=@userID;`,{id})
+        res.render('Subjects.ejs', {data: {courses: courses}})
+    })
+
+    .get("/myteachings", checkAuthenticated, async (req, res) =>{
+        //res.redirect('/Pages/Signin.html');
+        const id  = req.user.userID
+        const courses = await database.query(`select courseCode, courseNumber 
+                                                from users, courses, teaches, tutors
+                                                where users.userId = tutors.userID 
+                                                        and tutors.studentID = teaches.studentId
+                                                        and teaches.courseId = courses.courseId 
+                                                        and tutors.userID=@userID;`,{id})
+        res.render('Subjects.ejs', {data: {courses: courses}})
+    })
+
+    .get("/tutors/<:courseid>", checkAuthenticated, async (req, res) =>{
         //res.redirect('/Pages/Signin.html');
         //const cname = req.data.courses.courseCode
         //const cnum = req.data.courses.courseNumber
