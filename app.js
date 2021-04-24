@@ -140,15 +140,16 @@ app
                                                 where users.userId = tutors.userID 
                                                         and tutors.studentID = teaches.studentId
                                                         and teaches.courseId = courses.courseId 
-                                                        and tutors.userID=@userID;`,{id})
+                                                        and tutors.userID=@id;`,{id})
         res.render('Subjects.ejs', {data: {courses: courses}})
     })
 
-    .get("/tutors/<:courseid>", checkAuthenticated, async (req, res) =>{
+    .get("/tutors/:courseid", checkAuthenticated, async (req, res) =>{
         //res.redirect('/Pages/Signin.html');
         //const cname = req.data.courses.courseCode
         //const cnum = req.data.courses.courseNumber
-        const tutors = await database.query(`SELECT * FROM tutors NATURAL JOIN users`)
+        const id = req.params.courseid
+        const tutors = await database.query(`SELECT * FROM tutors NATURAL JOIN users as T, teaches WHERE tutors.tutorId = teaches.tutorId AND teaches.courseId = @id;`, {id})
         res.render('Tutors.ejs', {data: {tutors: tutors}})
     })
 
