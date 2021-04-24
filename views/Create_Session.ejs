@@ -50,11 +50,11 @@
       
       <!-- Sign in Section-->
       <div class="sign container-fluid translate-middle" style="width: 50%;">
-          <form action="/signin" method="POST">
+          <form action="/create_session/<%= data.tutorid%>" method="POST">
               <div class="mb-4 row">
                   <label for="meeting-time" class="col-sm-2 col-form-label">Choose a date and time:</label>
                   <div class="col-sm-10">
-                      <input name="Date" id="date" type="datetime-local" class="form-control" placeholder="Enter Date" required>
+                      <input name="date" id="date" type="datetime-local" class="form-control" placeholder="Enter Date" required>
                   </div>
               </div>
               <div class="mb-4 row">

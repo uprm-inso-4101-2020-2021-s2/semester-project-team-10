@@ -63,10 +63,14 @@
                   <div >
                       <div>
                         <nav class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" >
+
                           <% for (var i = 0; i < data.tutors.length; i++) { %>
-                          <button class="nav-link active" id=<%= data.tutors[i].tutorId%> data-bs-toggle="pill" data-bs-target="#"<%= data.tutors[i].tutorId%> type="button" role="tab" aria-controls="v-pills-PRECALCULUS-1" aria-selected="true"><%= data.tutors[i].firstName%> <%= data.tutors[i].lastName%></button>
-                         
+                            <form action="/create_session/<%= data.tutors[i].tutorId%>" method="GET">
+                                <button class="btn btn-success" id=<%= data.tutors[i].tutorId%>  data-bs-target="#"<%= data.tutors[i].tutorId%> type="submit" role="tab" aria-controls="v-pills-PRECALCULUS-1" aria-selected="true"><%= data.tutors[i].firstName%> <%= data.tutors[i].lastName%></button>
+                                
+                            </form>
                          <% } %>
+
                         </nav>
                       </div>
                   </div>
@@ -137,7 +141,7 @@
                     <div class="footer__logo">
                         <a href="/" id="footer__logo">UPRM Tutorial</a>
                     </div>
-                    <p class="website__right">© UPRM Tutoring 2021. All rights reserved</p>
+                    <p class="website__right">ï¿½ UPRM Tutoring 2021. All rights reserved</p>
                     <div class="social__icons">
                         <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="/" class="social__icon--link" target="_blank"><i class="fab fa-facebook"></i></a>

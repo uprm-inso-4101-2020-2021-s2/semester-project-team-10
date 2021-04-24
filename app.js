@@ -49,14 +49,6 @@ app
         res.render('index.ejs');
     })
 
-    .get("/create_session", function(req, res){
-        res.render('Create_Session.ejs');
-    })
-    
-    .get("/sessions", function(req, res){
-        res.render('Sessions.ejs');
-    })
-
     .get("/profile", checkAuthenticated, (req, res)=>{
         //res.send(req.user);
         res.render('Profile.ejs',
@@ -67,6 +59,11 @@ app
     })
 
     //registering new user
+    .get("/register", checkNotAuthenticated, (req, res) =>{
+        //res.redirect('/Pages/Signin.html');
+        res.render('Register.ejs')
+    })
+
     .post("/register", checkNotAuthenticated, async(req,res) => {
         const {firstName, lastName, email, password} = req.body;
 
@@ -100,9 +97,30 @@ app
             }
         })
 
-    .get("/register", checkNotAuthenticated, (req, res) =>{
-        //res.redirect('/Pages/Signin.html');
-        res.render('Register.ejs')
+    .get("/create_session/:tutorid", function(req, res){
+        const id = req.params.tutorid
+        res.render('Create_Session.ejs', {data: {tutorid: id}});
+    })
+
+    .post("/create_session/:tutorid", checkAuthenticated, async(req, res) =>{
+        const {date, duration, subject, description} = req.body;        
+        const tutorid = req.params.tutorid
+        const userid = req.user.userId
+        console.log(userid);
+        await database.query(`INSERT INTO sessions (studentId, tutorId, date, duration, subject, description)
+        VALUES ((SELECT studentId FROM students WHERE userId=@userid), @tutorid, @date, @duration, @subject, @description)`,
+        {userid, tutorid, date, duration, subject, description})
+
+
+        //insert into sessions (studentId, tutorId, date, duration, subject, description) VALUES ((select studentId from students where userId=34), 400, 20200923000000, 60, 'cool', 'desc')
+
+        res.redirect('/sessions')
+    })
+
+    .get("/sessions", checkAuthenticated, async(req, res) => {
+        const userid = req.user.userId
+        const sessions = await database.query(`SELECT * FROM sessions WHERE studentId = @userid OR tutorId = @userid;`, {userid})    
+        res.render('Sessions.ejs', {data: {sessions: sessions}} );
     })
 
     .get("/subjects", checkAuthenticated, async (req, res) =>{

@@ -55,7 +55,7 @@
         
         <!-- Tutor Section -->
         <div class="title">
-            <h1>Courses</h1>
+            <h1>Sessions</h1>
         </div>
        <div class="container" style="background-color: black; padding-top: 100px;">
               <div class="row align-items-start">
@@ -63,9 +63,9 @@
                   <div >
                       <div>
                         <nav class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" >
-                          <% for (var i = 0; i < data.courses.length; i++) { %>
-                          <form action="/tutors/<%= data.courses[i].courseId%>" method="GET">
-                            <button class="btn btn-success" id=<%= data.courses[i].courseCode%>  data-bs-target="#"<%= data.courses[i].courseCode%> type="submit" role="tab" aria-controls="v-pills-PRECALCULUS-1" aria-selected="true"><%= data.courses[i].courseCode%> <%= data.courses[i].courseNumber%></button>
+                          <% for (var i = 0; i < data.sessions.length; i++) { %>
+                          <form action="/sessions/<%= data.sessions[i].sessionId%>" method="GET">
+                            <button class="btn btn-success" id=<%= data.sessions[i].sessionId%>  data-bs-target="#"<%= data.sessions[i].sessionId%> type="submit" role="tab" aria-controls="v-pills-PRECALCULUS-1" aria-selected="true"><%= data.sessions[i].subject%> <%= data.sessions[i].description%></button>
                           </form>
                          <% } %>
                         </nav>
