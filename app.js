@@ -141,7 +141,7 @@ app
 
     .get("/sessions", checkAuthenticated, async(req, res) => {
         const userid = req.user.userId
-        const sessions = await database.query(`SELECT * FROM sessions WHERE studentId = @userid OR tutorId = @userid;`, {userid})    
+        const sessions = await database.query(`SELECT * FROM sessions natural join tutors natural join users WHERE studentId = @userid OR tutorId = @userid;`, {userid})    
         res.render('Sessions.ejs', {data: {sessions: sessions}} );
     })
 
