@@ -195,7 +195,7 @@ app
         //const cnum = req.data.courses.courseNumber
         const id = req.params.courseid
         const tutors = await database.query(`SELECT * FROM tutors NATURAL JOIN users as T, teaches WHERE tutors.tutorId = teaches.tutorId AND teaches.courseId = @id;`, {id})
-        res.render('Tutors.ejs', {data: {tutors: tutors}})
+        res.render('Tutors.ejs', {data: {tutors: tutors, courseid: courseid}})
     })
 
     //Sign in
