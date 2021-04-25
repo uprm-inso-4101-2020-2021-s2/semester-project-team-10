@@ -173,16 +173,16 @@ app
 
     .get("/mystudies", checkAuthenticated, async (req, res) =>{
         //res.redirect('/Pages/Signin.html');
-        const id  = req.user.userID
-        const courses = await database.query(`select *  from courses, takes 
-                                                where takes.courseId = courses.courseId 
-                                                and takes.studentId=@id`,{id})
+        const id  = req.user.userId
+        const courses = await database.query(`SELECT *  FROM courses, takes 
+                                                WHERE takes.courseId = courses.courseId 
+                                                AND takes.studentId=@id`,{id})
         res.render('Subjects.ejs', {data: {courses: courses}})
     })
 
     .get("/myteachings", checkAuthenticated, async (req, res) =>{
         //res.redirect('/Pages/Signin.html');
-        const id  = req.user.userID
+        const id  = req.user.userId
         const courses = await database.query(`select *  from courses, teaches 
                                                 where teaches.courseId = courses.courseId 
                                                 and teaches.tutorId=@id`,{id})
