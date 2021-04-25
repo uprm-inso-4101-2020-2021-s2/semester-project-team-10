@@ -49,13 +49,35 @@ app
         res.render('index.ejs');
     })
 
-    .get("/profile", checkAuthenticated, (req, res)=>{
-        //res.send(req.user);
+    .get("/profile", checkAuthenticated,  async (req, res)=>{
+        const userid = req.user.userId
+        const isStudent = (await database.query(`SELECT studentId FROM students WHERE userId = @userid`, {userid}))[0] != null
+        console.log(isStudent)
+        const isTutor = (await database.query(`SELECT tutorId FROM tutors WHERE userId = @userid`, {userid}))[0] != null
+        console.log(isTutor)
         res.render('Profile.ejs',
         {data: {
         firstName: req.user.firstName, 
         lastName: req.user.lastName, 
-        email: req.user.email}});
+        email: req.user.email,
+        isStudent: isStudent,
+        isTutor: isTutor}});
+    })
+
+    .get("/become_student", checkAuthenticated, async(req, res) =>{
+        const userid = req.user.userId
+        await database.query(`INSERT INTO students (studentId, userId)
+        VALUES (@userid, @userid)`,
+        {userid, userid})
+        res.redirect('/profile')
+    })
+
+    .get("/become_tutor", checkAuthenticated, async(req, res) =>{
+        const userid = req.user.userId
+        await database.query(`INSERT INTO tutors (tutorId, userId)
+        VALUES (@userid, @userid)`,
+        {userid, userid})
+        res.redirect('/profile')
     })
 
     //registering new user
