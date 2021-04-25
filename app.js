@@ -156,39 +156,36 @@ app
         const courses = await database.query(`SELECT * FROM courses`)
         res.render('Subjects.ejs', {data: {courses: courses}})
     })
-    .post("/course/take", checkAuthenticated, async (req, res) =>{
-        await database.query(`SELECT * FROM courses`)
+
+    .post("/course/take/:courseid", checkAuthenticated, async (req, res) =>{
+        const courseid = req.params.courseid
+        const userid = req.user.userId
+        await database.query(`INSERT INTO teaches (courseId, studentId) VALUES (@courseid, @userid)`, courseid, userid)
         res.redirect('/mystudies');
-        res.render('Subjects.ejs', {data: {courses: courses}})
     })
 
-    .post("/course/teach", checkAuthenticated, async (req, res) =>{
-        await database.query(`SELECT * FROM courses`)
+    .post("/course/teach/:courseid", checkAuthenticated, async (req, res) =>{
+        const courseid = req.params.courseid
+        const userid = req.user.userId
+        await database.query(`INSERT INTO teaches (courseId, tutorId) VALUES (@courseid, @userid)`, courseid, userid)
         res.redirect('/myteachings');
-        res.render('Subjects.ejs', {data: {courses: courses}})
     })
 
     .get("/mystudies", checkAuthenticated, async (req, res) =>{
         //res.redirect('/Pages/Signin.html');
         const id  = req.user.userID
-        const courses = await database.query(`select courseCode, courseNumber 
-                                                from users, courses, takes, students
-                                                where users.userId = students.userID 
-                                                        and students.studentID = takes.studentId
-                                                        and takes.courseId = courses.courseId 
-                                                        and students.userID=@userID;`,{id})
+        const courses = await database.query(`select *  from courses, takes 
+                                                where takes.courseId = courses.courseId 
+                                                and takes.studentId=@id`,{id})
         res.render('Subjects.ejs', {data: {courses: courses}})
     })
 
     .get("/myteachings", checkAuthenticated, async (req, res) =>{
         //res.redirect('/Pages/Signin.html');
         const id  = req.user.userID
-        const courses = await database.query(`select courseCode, courseNumber 
-                                                from users, courses, teaches, tutors
-                                                where users.userId = tutors.userID 
-                                                        and tutors.studentID = teaches.studentId
-                                                        and teaches.courseId = courses.courseId 
-                                                        and tutors.userID=@id;`,{id})
+        const courses = await database.query(`select *  from courses, teaches 
+                                                where teaches.courseId = courses.courseId 
+                                                and teaches.tutorId=@id`,{id})
         res.render('Subjects.ejs', {data: {courses: courses}})
     })
 
