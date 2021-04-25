@@ -67,11 +67,17 @@
                           <form action="/tutors/<%= data.courses[i].courseId%>" method="GET">
                             <button class="btn btn-success" id=<%= data.courses[i].courseCode%>  data-bs-target="#"<%= data.courses[i].courseCode%> type="submit" role="tab" aria-controls="v-pills-PRECALCULUS-1" aria-selected="true"><%= data.courses[i].courseCode%> <%= data.courses[i].courseNumber%></button>
                           </form>
+                          <!--
+                          <form action="/tutors/<%= data.courses[i].courseId%>" method="GET">
+                            <button class="btn btn-success" id="teachcourse" data-bs-target="#" type="submit" role="tab" aria-controls="v-pills-PRECALCULUS-1" aria-selected="true"> Teach this course</button>
+                          </form>
+                          -->
                          <% } %>
                         </nav>
                       </div>
                   </div>
                 </div>
+                <!--
                 <div class="col-6" style="background-color: white;">
                   <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-PRECALCULUS-1" role="tabpanel" aria-labelledby="v-pills-PRECALCULUS-1-tab">
@@ -90,8 +96,8 @@
                     </div>
                     </div>
                 </div>
-
               </div>
+            -->
             </div>
         
         

@@ -160,14 +160,15 @@ app
     .post("/course/take/:courseid", checkAuthenticated, async (req, res) =>{
         const courseid = req.params.courseid
         const userid = req.user.userId
-        await database.query(`INSERT INTO teaches (courseId, studentId) VALUES (@courseid, @userid)`, courseid, userid)
+        console.log(courseid)
+        await database.query(`INSERT INTO takes (courseId, studentId) VALUES (@courseid, @userid)`, {courseid, userid})
         res.redirect('/mystudies');
     })
 
     .post("/course/teach/:courseid", checkAuthenticated, async (req, res) =>{
         const courseid = req.params.courseid
         const userid = req.user.userId
-        await database.query(`INSERT INTO teaches (courseId, tutorId) VALUES (@courseid, @userid)`, courseid, userid)
+        await database.query(`INSERT INTO teaches (courseId, tutorId) VALUES (@courseid, @userid)`, {courseid, userid})
         res.redirect('/myteachings');
     })
 
@@ -195,7 +196,7 @@ app
         //const cnum = req.data.courses.courseNumber
         const id = req.params.courseid
         const tutors = await database.query(`SELECT * FROM tutors NATURAL JOIN users as T, teaches WHERE tutors.tutorId = teaches.tutorId AND teaches.courseId = @id;`, {id})
-        res.render('Tutors.ejs', {data: {tutors: tutors, courseid: courseid}})
+        res.render('Tutors.ejs', {data: {tutors: tutors, courseid : id}})
     })
 
     //Sign in
