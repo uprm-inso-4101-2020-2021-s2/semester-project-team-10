@@ -145,6 +145,16 @@ app
         res.render('Sessions.ejs', {data: {sessions: sessions}} );
     })
 
+    .get("/rank/:tutorid", checkAuthenticated, async(req, res)=>{
+        const tutorid = req.params.tutorid
+        res.render('Rank.ejs', {data: {tutorid: tutorid}})
+    })
+
+    .post("/rank/:tutorid", checkAuthenticated, async(req, res)=>{
+        const tutorid = req.params.tutorid
+        res.redirect("/sessions")
+    })
+
     .get("/subjects", checkAuthenticated, async (req, res) =>{
         //res.redirect('/Pages/Signin.html');
         const courses = await database.query(`SELECT * FROM courses`)
