@@ -119,9 +119,11 @@ app
             }
         })
 
-    .get("/create_session/:tutorid", function(req, res){
+    .get("/create_session/:tutorid", async(req, res) =>{
         const id = req.params.tutorid
-        res.render('Create_Session.ejs', {data: {tutorid: id}});
+        const rating = (await database.query(`select avg(rating) as average from ranks where tutorID = @id;`, {id}))[0].average
+        console.log(rating)
+        res.render('Create_Session.ejs', {data: {tutorid: id, rating: rating}});
     })
 
     .post("/create_session/:tutorid", checkAuthenticated, async(req, res) =>{
@@ -152,6 +154,10 @@ app
 
     .post("/rank/:tutorid", checkAuthenticated, async(req, res)=>{
         const tutorid = req.params.tutorid
+        const userid = req.user.userId
+        const rating = req.body.rating
+        const comment = req.body.comment
+        await database.query(`insert into ranks(studentID, tutorID, rating, comment) VALUES (@userid, @tutorid, @rating, @comment)`, {userid, tutorid, rating, comment})
         res.redirect("/sessions")
     })
 

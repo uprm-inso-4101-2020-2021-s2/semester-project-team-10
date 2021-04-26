@@ -13,6 +13,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
     <!-- Animation CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -48,42 +49,23 @@
       </nav>
 
       
-      <!-- Sign in Section-->
+      <!-- Ranking -->
       <div class="sign container-fluid translate-middle" style="width: 50%;">
-        Tutor's Rating: <%= data.rating%>
-      <div class="mb-4 row"></div>
-          <form action="/create_session/<%= data.tutorid%>" method="POST">
+          <form action="/rank/<%= data.tutorid%>" method="POST">
               <div class="mb-4 row">
-                  <label for="meeting-time" class="col-sm-2 col-form-label">Choose a date and time:</label>
+                  <label for="duration" class="col-sm-2 col-form-label">Rating:</label>
                   <div class="col-sm-10">
-                      <input name="date" id="date" type="datetime-local" class="form-control" placeholder="Enter Date" required>
+                      <input name="rating" id="rating" type="number"min="1" max="5" class="form-control" placeholder="Enter Rating" required>
                   </div>
               </div>
-              <div class="mb-4 row">
-                  <label for="duration" class="col-sm-2 col-form-label">Duration in minutes</label>
-                  <div class="col-sm-10">
-                      <input name="duration" id="duration" type="number" class="form-control" placeholder="Enter Duration" required>
-                  </div>
-              </div>
-              <div class="mb-4 row">
-                <label for="subject" class="col-sm-2 col-form-label">Subject</label>
-                <div class="col-sm-10">
-                    <input name="subject" id="subject" type="text" class="form-control" placeholder="Enter Subject" required>
-                </div>
-            </div>
+
             <div class="mb-4 row">
-                <label for="description" class="col-sm-2 col-form-label">Description</label>
+                <label for="description" class="col-sm-2 col-form-label">Comments</label>
                 <div class="col-sm-10">
-                    <input name="description" id="description" type="text" class="form-control" placeholder="Enter Description" required>
+                    <input name="comment" id="comment" type="text" class="form-control" placeholder="Enter Comment" required>
                 </div>
             </div>
               <button type="submit" class="btn btn-success">Submit</button>
-<!--               <div class="container">
-                  <label>
-                      <input type="checkbox" checked="checked" name="remember"> Remember me
-                  </label>
-                  <span class="psw">Forgot <a href="#">password?</a></span>
-              </div> -->
           </form>
       </div>
 
