@@ -42,11 +42,20 @@
                         <li class="nav-item">
                             <a class="nav-link ms-4" href="views/ContactUs.ejs">Contact Us</a>
                         </li>
+                        <%if (!data.signedIn) { %> 
                         <li class="nav-item">
                             <!--<button onclick="document.getElementById('id01').style.display='block'" class="nav__btn ms-4" style="width: auto;">Login</button>-->
                             <!-- <a class="nav-link ms-4" href="/register">Register</a> -->
                             <button class="nav__btn ms-4"><a href="/signin">Sign In</a></button>
                         </li>
+                        <% } else { %>
+                            <form action="/logout?_method=DELETE" method="POST">
+                                <button class="nav__btn ms-4">
+                                  <a type="submit">Logout</a>
+                                </button>
+                              </form>
+                        <% } %>
+
                     </ul>
                 </div>
             </div>

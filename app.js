@@ -46,7 +46,8 @@ app
 
     .get("/", function(req, res){
         //res.sendFile(__dirname + "/");
-        res.render('index.ejs');
+        const isAuth = req.isAuthenticated()
+        res.render('index.ejs', {data: {signedIn: isAuth}});
     })
 
     .get("/profile", checkAuthenticated,  async (req, res)=>{
