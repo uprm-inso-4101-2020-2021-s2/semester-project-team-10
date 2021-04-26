@@ -63,7 +63,7 @@
                     <button class="btn btn-success" id="teachcourse" data-bs-target="#" type="submit" role="tab" aria-controls="v-pills-PRECALCULUS-1" aria-selected="true"> Teach this course</button>
                 </form>
                 <form action="/course/take/<%= data.courseid%>" method="POST">
-                    <button class="btn btn-success" id="teachcourse" data-bs-target="#" type="submit" role="tab" aria-controls="v-pills-PRECALCULUS-1" aria-selected="true"> Study this course</button>
+                    <button class="btn btn-success" style="margin:5px;" id="teachcourse" data-bs-target="#" type="submit" role="tab" aria-controls="v-pills-PRECALCULUS-1" aria-selected="true"> Study this course</button>
                 </form>
                 <div class="col-6" >
                   <div >
@@ -72,7 +72,7 @@
 
                           <% for (var i = 0; i < data.tutors.length; i++) { %>
                             <form action="/create_session/<%= data.tutors[i].tutorId%>" method="GET">
-                                <button class="btn btn-success" id=<%= data.tutors[i].tutorId%>  data-bs-target="#"<%= data.tutors[i].tutorId%> type="submit" role="tab" aria-controls="v-pills-PRECALCULUS-1" aria-selected="true"><%= data.tutors[i].firstName%> <%= data.tutors[i].lastName%></button>           
+                                <button class="btn btn-success" style="margin:5px;" id=<%= data.tutors[i].tutorId%>  data-bs-target="#"<%= data.tutors[i].tutorId%> type="submit" role="tab" aria-controls="v-pills-PRECALCULUS-1" aria-selected="true"><%= data.tutors[i].firstName%> <%= data.tutors[i].lastName%></button>           
                             </form>
                          <% } %>
 

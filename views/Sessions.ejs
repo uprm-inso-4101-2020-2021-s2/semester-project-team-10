@@ -65,7 +65,7 @@
                         <nav class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" >
                           <% for (var i = 0; i < data.sessions.length; i++) { %>
                           <form action="/sessions/<%= data.sessions[i].sessionId%>" method="GET">
-                            <button class="btn btn-success" id=<%= data.sessions[i].sessionId%>  data-bs-target="#"<%= data.sessions[i].sessionId%> type="submit" role="tab" aria-controls="v-pills-PRECALCULUS-1" aria-selected="true"><%= data.sessions[i].subject%> <%= data.sessions[i].description%></button>
+                            <button class="btn btn-success" style="margin:5px;" id=<%= data.sessions[i].sessionId%>  data-bs-target="#"<%= data.sessions[i].sessionId%> type="submit" role="tab" aria-controls="v-pills-PRECALCULUS-1" aria-selected="true"><%= data.sessions[i].firstName%><%= data.sessions[i].lastName%><br><%= data.sessions[i].subject%><br><%= data.sessions[i].description%><br><%= data.sessions[i].date%></button>
                           </form>
                          <% } %>
                         </nav>
